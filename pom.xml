@@ -6,7 +6,7 @@
     <groupId>com.objectdb.realm</groupId>
     <artifactId>glassfish-objectdb-realm</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,9 +14,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.glassfish.security</groupId>
+            <groupId>org.glassfish.main.security</groupId>
             <artifactId>security</artifactId>
-            <version>3.1.1</version>
+            <version>3.1.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -24,11 +24,11 @@
             <artifactId>javax.persistence</artifactId>
             <version>2.1.0</version>
             <scope>provided</scope>
-        </dependency> 
+        </dependency>
         <dependency> 
             <groupId>com.objectdb</groupId> 
             <artifactId>objectdb</artifactId> 
-            <version>2.5.3_03</version>
+            <version>2.6.8</version>
         </dependency>
     </dependencies>
     
@@ -51,6 +51,11 @@
             <id>objectdb</id> 
             <name>ObjectDB Repository</name> 
             <url>http://m2.objectdb.com</url> 
+        </repository>
+        <repository>
+            <id>glassfish-repo-archive</id>
+            <name>glassfish-repo-archive</name>
+            <url>https://maven.java.net/content/groups/public/</url>
         </repository>
     </repositories>
 </project>

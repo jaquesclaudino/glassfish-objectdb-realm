@@ -49,6 +49,9 @@ import javax.security.auth.login.LoginException;
 public class ObjectDBRealm extends AppservRealm {
 
     private static final Logger LOG = Logger.getLogger(ObjectDBRealm.class.getName());
+    static {
+        LOG.setLevel(Level.ALL);
+    }
     
     private static final String DEFAULT_JAAS_CONTEXT_VALUE = "objectdbRealm"; //default name in login.conf       
     private static final String PROPERTY_JAAS_CONTEXT = "jaas-context";
@@ -147,7 +150,7 @@ public class ObjectDBRealm extends AppservRealm {
         em.close();
         emf.close();
 
-        LOG.log(Level.INFO, "getGroupNames user={0} groups={1}", new Object[] {username, list.toString()});
+        LOG.log(Level.FINEST, "getGroupNames user={0} groups={1}", new Object[] {username, list.toString()});
         return Collections.enumeration(list);
     }
 

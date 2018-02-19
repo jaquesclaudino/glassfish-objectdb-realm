@@ -20,6 +20,9 @@ import java.util.logging.Logger;
 public class LoginModule extends AppservPasswordLoginModule {
 
     private static final Logger LOG = Logger.getLogger(LoginModule.class.getName());
+    static {
+        LOG.setLevel(Level.ALL);
+    }
 
     /**
      * Overrides the authenticateUser() method in AppservPasswordLoginModule
@@ -29,7 +32,7 @@ public class LoginModule extends AppservPasswordLoginModule {
      */
     @Override
     protected void authenticateUser() throws LoginException {
-        LOG.log(Level.INFO, "Autenticate user={0} password={1} realm={2}", new Object[] {_username, _password, _currentRealm});
+        LOG.log(Level.FINEST, "Autenticate user={0} password={1} realm={2}", new Object[] {_username, _password, _currentRealm});
 
         if (!(_currentRealm instanceof ObjectDBRealm)) {
             throw new LoginException("Realm not ObjectDBRealm instance. Check 'login.conf'.");
@@ -40,7 +43,7 @@ public class LoginModule extends AppservPasswordLoginModule {
             throw new LoginException("Login Failed for user " + _username);
         }
 
-        LOG.log(Level.INFO, "Login Succeded for user {0}", _username);       
+        LOG.log(Level.INFO, "Login succeeded for user {0}", _username);       
         
         // Call commitUserAuthentication with the group names the user belongs to.
         // Note that this method is called after the authentication has succeeded.
